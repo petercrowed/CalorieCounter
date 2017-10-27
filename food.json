@@ -1,12 +1,17 @@
 {
   "items": [
     {
-      "fruit": "Banana",
+      "fruit": "banana",
       "kcal": 90
     },{
-      "fruit": "Apple",
+      "fruit": "apple",
+      "kcal": 65
+    },
+    {
+      "fruit": "brot",
       "kcal": 65
     }
+
   ],
   "obj": {
     "number": 1.2345e-6,

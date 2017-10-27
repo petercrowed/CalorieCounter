@@ -1,84 +1,72 @@
+var stringValue;
+var arrayOfElements;
+var banane, apple;
+var items;
 
-    var stringValue;
-    var arrayOfElements;
-    var banane, brot;
-    var items;
-
-    $(document).ready(function () {
-
-    var showData = $('#show-data');
-
-        $.getJSON('food.json', function (data) {
-          console.log(data);
-
-          items = data.items.map(function (item) {
-            return item;
-          });
-
-          showData.empty();
-
-          if (items.length) {
-            var content = '<li>' + items.join('</li><li>') + '</li>';
-            var list = $('<ul />').html(content);
-            showData.append(list);
-          }
-        });
-
-        showData.text('Loading the JSON file.');
-      });
+var elementsFromArea = [];
+$(document).ready(function() {
 
 
-    function removeSpaces(val) {
-       return val.split(' ').join('');
-    }
+
+  $.getJSON('food.json', function(data) {
+
+
+    items = data.items.map(function(item) {
+      return item;
+    });
+
+
+
+
+  });
+
+
+});
+
+
+function removeSpaces(val) {
+  return val.split(' ').join('');
+}
 
 function calculateCalories() {
 
 
 
-    stringValue = document.getElementById("myTextarea").value;
+  stringValue = document.getElementById("myTextarea").value;
 
-    arrayOfElements = removeSpaces(stringValue);
+  arrayOfElements = removeSpaces(stringValue);
 
-    arrayOfElements = arrayOfElements.split(",");
-
-    console.log(arrayOfElements.includes('banane'));
-  var banane;
-  var brot ;
-
-  console.log(items[0].kcal);
-    if(arrayOfElements.includes('banane'))
-    {
+  arrayOfElements = arrayOfElements.split(",");
 
 
+arrayOfElements.forEach(function(element) {
+
+items.forEach(function(entry) {
 
 
-      banane = items[0].kcal;
+if(entry.fruit == element){
 
-      console.log("Banane stehts fur 96 kcal");
+  elementsFromArea.push(entry.kcal);
 
-    }
-    if(arrayOfElements.includes('brot'))
-    {
-    brot = 67;
-      console.log("Brot stehts fur 67 kcal");
+}
 
-    }
-    var calorieValue;
-
-console.log(typeof banane == 'undefined');
-    if(typeof banane === 'undefined' && typeof brot === 'undefined')
-    {
-          calorieValue = banane + brot;
-    }else if(typeof banane === 'undefined')
-      {
-        calorieValue = banane;
-      } else if(typeof brot === 'undefined')
-        {
-          calorieValue = brot;
-        }
+});
+});
 
 
-    console.log("Deine Kalorie sind:" + calorieValue);
+var sum = elementsFromArea.reduce(add, 0);
 
-  }
+function add(a, b) {
+    return a + b;
+}
+
+
+    var x = sum;
+    document.getElementById("sumOfCalories").innerHTML = "Your calories are: " + x;
+
+
+console.log(sum); // 6
+    // console.log(entry.fruit);
+
+
+}
