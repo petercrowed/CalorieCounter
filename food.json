@@ -1,15 +1,19 @@
 {
   "items": [
     {
-      "fruit": "banana",
+      "name": "banana",
       "kcal": 90
     },{
-      "fruit": "apple",
+      "name": "apple",
       "kcal": 65
     },
     {
-      "fruit": "brot",
-      "kcal": 65
+      "name": "avocado",
+      "kcal": 166
+    },
+    {
+      "name": "breadslice",
+      "kcal": 120
     }
 
   ],

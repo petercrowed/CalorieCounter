@@ -2,7 +2,8 @@ var stringValue;
 var arrayOfElements;
 var banane, apple;
 var items;
-
+var sum;
+var x;
 var elementsFromArea = [];
 $(document).ready(function() {
 
@@ -29,6 +30,7 @@ function removeSpaces(val) {
 }
 
 function calculateCalories() {
+    elementsFromArea = [];
 
 
 
@@ -44,7 +46,7 @@ arrayOfElements.forEach(function(element) {
 items.forEach(function(entry) {
 
 
-if(entry.fruit == element){
+if(entry.name== element){
 
   elementsFromArea.push(entry.kcal);
 
@@ -54,19 +56,15 @@ if(entry.fruit == element){
 });
 
 
-var sum = elementsFromArea.reduce(add, 0);
+sum = elementsFromArea.reduce(add, 0);
 
 function add(a, b) {
     return a + b;
 }
 
 
-    var x = sum;
-    document.getElementById("sumOfCalories").innerHTML = "Your calories are: " + x;
 
-
-console.log(sum); // 6
-    // console.log(entry.fruit);
+    document.getElementById("sumOfCalories").innerHTML = "Your calories are: " + " "+ sum ;
 
 
 }
